@@ -1,0 +1,22 @@
+<!-- Loop over each object in the posts array -->
+<div class='posts'>
+    {{#each posts as |post| }}
+    <article class='card'>
+        <div class="card-header flex-row justify-space-between'>
+            <h2>
+      <!-- Call helper function with triple brackets to render the emoji span as HTML -->
+            {{{get_emoji}}}
+                <a href="/post/{{post.id}}">{{post.name}}</a>
+            </h2>
+            <div>
+                Created by {{post.user.name}} on {{format_date post.date_created}}
+            </div>
+        </div>
+
+        <div class='card-body'>
+            <p>{{post.description}}</p>
+        </div>
+
+    </article>
+    {{/each}}
+</div>
