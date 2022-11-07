@@ -5,7 +5,7 @@ const withAuth = require('../../utils/auth');
 // GET /post all POSTS & their associated Comments
 router.get('/', withAuth, async (req, res) => {
   try {
-    const postData = await PostData.findAll({
+    const postData = await Post.findAll({
       where: {
         // use session ID
         user_id: req.session.user_id,
@@ -39,7 +39,7 @@ router.get('/', withAuth, async (req, res) => {
 // GET /post FIND ONE and its associated Comments
 router.get('/:id', withAuth, async (req, res) => {
   try {
-    const postData = await PostData.findOne({
+    const postData = await Post.findOne({
       where: {
         // use session ID
         user_id: req.session.user_id,
