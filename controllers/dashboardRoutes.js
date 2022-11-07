@@ -56,7 +56,7 @@ router.get('/', async (req, res) => {
       // Serialize the data 
       const post = postData.get({ plain: true });
       // Pass data to template
-      res.render('edit-post', {
+      res.render('edit', {
         ...post,
         logged_in: req.session.logged_in
       });
