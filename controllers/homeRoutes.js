@@ -37,6 +37,7 @@ router.get('/', async (req, res) => {
     }
   });
 
+  // GET login form
   router.get('/login', (req, res) => {
     // If the user is already logged in, redirect the request to another route
     if (req.session.logged_in) {
@@ -46,6 +47,7 @@ router.get('/', async (req, res) => {
     res.render('login'); 
   });
 
+  // GET signup form
   router.get('/signup', (req, res) => {
     // If user already has an account ??????????????????????
     if (req.session.logged_in) {
@@ -54,3 +56,28 @@ router.get('/', async (req, res) => {
     }
     res.render('signup'); 
   });
+
+  // GET one post 
+  router.get('/post/:id', async (req, res) => {
+    try {
+      const postData = await PostData.findOne(req.params.id, {
+        include: [
+          {
+            model: User,
+           // attributes: ['user_name'], DO I NEED THIS??????
+            model: Comment // do I need attributes????????????
+          },
+        ],
+      });
+      // Serialize the data 
+      const post = postData.get({ plain: true });
+      // Pass data to template
+      res.render('single-post', {
+        ...post,
+        logged_in: req.session.logged_in
+      });
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  });
+  
