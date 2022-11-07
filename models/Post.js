@@ -13,15 +13,23 @@ Post.init(
       primaryKey: true,
       autoIncrement: true,
     }, 
-    post_title: {
+    title: {
       type: DataTypes.STRING,
       allowNull: false, 
-  },
-    user_name: {
+    },
+    post_body: {
+    type: DataTypes.STRING,
+    allowNull: false, 
+    },
+    user_id: {
         type: DataTypes.STRING,
         allowNull: false,
+        references: {
+            model: 'user',
+            key: 'id'
+        },
     },
-},
+  },
   {
     sequelize,
     timestamps: true,

@@ -9,38 +9,34 @@ User.hasMany(Post, {
     onDelete: 'CASCADE', 
   });
 
+// Posts belongs to User
+Post.belongsTo(User, {
+    foreignKey: 'user_id',
+    onDelete: 'CASCADE', 
+  });
+
+// Comments belongsTo User
+Comment.belongsTo(User, {
+  foreignKey: 'user_id',
+  onDelete: 'CASCADE'
+});
+
+// Users have many Comments
+User.hasMany(Comment, {
+    foreignKey: 'user_id',
+    onDelete: 'CASCADE', 
+});
+
+// Commnets belong to Post 
+Comment.belongsto(Post, {
+  foreignKey: 'post_id'
+});
+
 // Posts have many Comments
 Post.hasMany(Comment, {
     foreignKey: 'post_id',
     onDelete: 'CASCADE', 
-  });
-
-// Comments belongsTo Post
-Comment.belongsTo(Post, {
-  foreignKey: 'product_id',
-  onDelete: 'CASCADE'
 });
-
-// // Comment belongToMany Tags 
-// Product.belongsToMany(Tag, {
-//   // Define sthe third table needed to store the foreign keys
-//   through: {
-//     model: ProductTag,
-//     unique: false  
-//   },
-//   // Defines a foreignKey for when data is retrieved
-//   foreignKey: 'product_id' 
-// });
-
-// // Tags belongToMany Products 
-// Tag.belongsToMany(Product, {
-//   through: {
-//     model: ProductTag,
-//     unique: false
-//   },
-//   // foreignKey
-//   foreignKey: 'tag_id'
-// });
 
 
 module.exports = { User, Post, Comment };

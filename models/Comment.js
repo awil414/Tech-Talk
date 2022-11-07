@@ -19,10 +19,25 @@ Comment.init(
     comment_text: {
       type: DataTypes.STRING,
       allowNull: false,
+        validate: {
+            len: [1]
+        }
     },
-    user_name: {
+    user_id: {
         type: DataTypes.STRING,
         allowNull: false,
+        references: {
+            model: 'user',
+            key: 'id'
+        }
+    },
+    post_id: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        references: {
+            model: 'post',
+            key: 'id'
+        }
     },
   },
   {
