@@ -17,11 +17,17 @@ router.get('/', withAuth, async (req, res) => {
       include: [
         {
           model: User,
-          attributes: ['user_name']
+          attributes: ['user_name'],
         },
         {
           model: Comment,
-          attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+          attributes: [
+            'id',
+            'comment_text',
+            'post_id',
+            'user_id',
+            'created_at',
+          ],
           include: {
             model: User,
             attributes: ['user_name'],
@@ -51,11 +57,17 @@ router.get('/:id', withAuth, async (req, res) => {
       include: [
         {
           model: User,
-          attributes: ['user_name']
+          attributes: ['user_name'],
         },
         {
           model: Comment,
-          attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+          attributes: [
+            'id',
+            'comment_text',
+            'post_id',
+            'user_id',
+            'created_at',
+          ],
           include: {
             model: User,
             attributes: ['user_name'],
@@ -88,11 +100,11 @@ router.post('/', withAuth, async (req, res) => {
 router.put('/:id', withAuth, async (req, res) => {
   // update post data
   try {
-  const updatePost = await Post.update({
-    ...req.body.title, 
-    ...req.body.post_body, 
-    user_id: req.session.user_id,
-    id: req.params.id
+    const updatePost = await Post.update({
+      ...req.body.title,
+      ...req.body.post_body,
+      user_id: req.session.user_id,
+      id: req.params.id,
     });
 
     res.status(200).json(updatePost);
@@ -100,7 +112,6 @@ router.put('/:id', withAuth, async (req, res) => {
     res.status(400).json(err);
   }
 });
-  
 
 // DESTROY delete post
 router.delete('/:id', withAuth, async (req, res) => {
