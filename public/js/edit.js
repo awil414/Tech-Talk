@@ -4,8 +4,7 @@ const editFormHandler = async (event) => {
     // Collect values from the post
     const title = document.querySelector('input[name="title"]').value.trim();
     const post_body = document.querySelector('input[name="post_body"]').value.trim();
-    console.log(title);
-    console.log(post_body);
+    
     // Selects ONE post
     const id = window.location.toString().split('/') [
         window.location.toString().split('/').length - 1 ];
