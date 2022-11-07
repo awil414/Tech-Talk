@@ -33,10 +33,42 @@ router.get('/', async (req, res) => {
 
         // Pass serialized data with sessions into template
         res.render('dashboard', {
-            posts,
+            ...posts,
             logged_in: req.session.logged_in
         });
     } catch (err) {
       res.status(500).json(err);
     }
   });
+
+  // GET one post by id to edit
+  router.get('/edit/:id', async (req, res) => {
+    try {
+      const postData = await PostData.findOne(req.params.id, {
+        include: [
+          {
+            model: User,
+           // attributes: ['user_name'], DO I NEED THIS??????
+            model: Comment // do I need attributes????????????
+          },
+        ],
+      });
+      // Serialize the data 
+      const post = postData.get({ plain: true });
+      // Pass data to template
+      res.render('edit-post', {
+        ...post,
+        logged_in: req.session.logged_in
+      });
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  });
+
+//   // DO I NEED ??????
+//  router.get('/new', (req, res) => {
+//     res.render('new-post');
+//   });
+
+module.exports = router;
+  
