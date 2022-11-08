@@ -26,7 +26,7 @@ The necessary dependencies to install are:
 * express-session
 
 ## Usage
-To finish the application set-up clone the repo, navigate to the root folder, and run the following commands from the CLI:
+To complete application set-up, clone the repo, navigate to the root folder, and run the following commands from the CLI:
 
 * Seed database: 
 npm run seed
