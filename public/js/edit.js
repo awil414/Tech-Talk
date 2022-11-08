@@ -2,9 +2,9 @@ const editFormHandler = async (event) => {
   event.preventDefault();
 
   // Collect values from the post
-  const title = document.querySelector('input[name="title"]').value.trim();
+  const title = document.querySelector('input[name="post-title"]').value.trim();
   const post_body = document
-    .querySelector('input[name="post_body"]')
+    .querySelector('input[name="post-body"]')
     .value.trim();
 
   // Selects ONE post

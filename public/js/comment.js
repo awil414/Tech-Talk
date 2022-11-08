@@ -2,7 +2,7 @@ const commentFormHandler = async (event) => {
     event.preventDefault();
   
     // Collect values from the comment
-    const comment_text = document.querySelector('input[name="comment_text"]').value.trim();
+    const comment_text = document.querySelector('input[name="comment-text"]').value.trim();
   
     // Selects ONE comment
     const post_id = window.location.toString().split('/')[
