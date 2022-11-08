@@ -3,17 +3,17 @@ const { Post, User, Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // GET /post all POSTS & their associated Comments
-router.get('/', withAuth, async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     const postData = await Post.findAll({
-      where: {
-        // use session ID
-        user_id: req.session.user_id,
-      },
-      attributes: ['id', 'title', 'post_body',],
-      // order:[
-      //   ['created_at', 'DESC']
-      // ],
+      // where: {
+      //   // use session ID
+      //   user_id: req.session.user_id,
+      // },
+      attributes: ['id', 'title', 'post_body', 'created_at'],
+      order:[
+        ['created_at', 'DESC']
+      ],
       include: [
         {
           model: User,
@@ -36,7 +36,7 @@ router.get('/', withAuth, async (req, res) => {
       ],
     });
 
-    res.status(200).json(postData.reverse);name
+    res.status(200).json(postData)
   } catch (err) {
     res.status(500).json(err);
   }

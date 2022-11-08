@@ -6,8 +6,8 @@ const withAuth = require('../utils/auth');
 // GET all POSTS & their associated Comments
 router.get('/', async (req, res) => {
   try {
-    const postData = await PostData.findAll({
-      attributes: ['id', 'title', 'post_body'],
+    const postData = await Post.findAll({
+      attributes: ['id', 'title', 'post_body', 'created_at'],
       include: [
         {
           model: Comment,
@@ -30,7 +30,7 @@ router.get('/', async (req, res) => {
     // Pass serialized data with sessions into template
     res.render('homepage', {
       posts,
-      logged_in: req.session.logged_in,
+      // logged_in: req.session.logged_in,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -79,7 +79,7 @@ router.get('/signup', (req, res) => {
 // GET one post
 router.get('/post/:id', async (req, res) => {
   try {
-    const postData = await PostData.findOne(req.params.id, {
+    const postData = await Post.findOne(req.params.id, {
       include: [
         {
           model: User,

@@ -1,19 +1,19 @@
 [
     {
-      "comment_text": "First comment"
-      // "user_id": 1,
-      // "post-id": 1
+      "comment_text": "First comment",
+      "user_id": 1,
+      "post_id": 1
     },
     {
-      "comment_text": "Second comment"
-      // "user_id": 2,
-      // "post-id": 2
+      "comment_text": "Second comment",
+      "user_id": 2,
+      "post_id": 2
 
     },
     {
-      "comment_text": "Third comment"
-      // "user_id": 3,
-      // "post-id": 3
+      "comment_text": "Third comment",
+      "user_id": 3,
+      "post_id": 3
     }
   ]
   
