@@ -1,8 +1,14 @@
-<div class="text-center">
-  <h2>{{username}}</h2>
-  <p>{{post_body}}</p>
-  <p>Created by {{user.username}} on {{format_date date_created}}</p>
-  <p>
-    <button class="btn btn-primary">Check this out!</button>
-  </p>
+<div class="post card">
+  <div class="card-header">
+    <h2>Create New Post</h2>
+  </div>
+  <form id="new-post-form" class="card-body">
+    <label class="form-label" for="post-title">Title</label>
+    <input type="text" name={{post_title}} class="form-input" />
+    <p>{{post_body}}</p>
+    <p>Created by {{user.username}} on {{format_date date_created}}</p>
+    <p>
+      <button class="btn btn-primary">Submit</button>
+    </p>
 </div>
+<script src="/js/new.js"></script>
