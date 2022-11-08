@@ -17,7 +17,7 @@ router.get('/', withAuth, async (req, res) => {
       include: [
         {
           model: User,
-          attributes: ['user_name'],
+          attributes: ['name'],
         },
         {
           model: Comment,
@@ -30,13 +30,13 @@ router.get('/', withAuth, async (req, res) => {
           ],
           include: {
             model: User,
-            attributes: ['user_name'],
+            attributes: ['name'],
           },
         },
       ],
     });
 
-    res.status(200).json(postData.reverse);
+    res.status(200).json(postData.reverse);name
   } catch (err) {
     res.status(500).json(err);
   }
@@ -57,7 +57,7 @@ router.get('/:id', withAuth, async (req, res) => {
       include: [
         {
           model: User,
-          attributes: ['user_name'],
+          attributes: ['name'],
         },
         {
           model: Comment,
@@ -70,7 +70,7 @@ router.get('/:id', withAuth, async (req, res) => {
           ],
           include: {
             model: User,
-            attributes: ['user_name'],
+            attributes: ['name'],
           },
         },
       ],

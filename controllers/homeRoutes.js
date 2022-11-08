@@ -14,12 +14,12 @@ router.get('/', async (req, res) => {
           attributes: ['id', 'comment_text', 'post_id', 'user_id'],
           include: {
             model: User,
-            attributes: ['user_name'],
+            attributes: ['name'],
           },
         },
         {
           model: User,
-          attributes: ['user_name'],
+          attributes: ['name'],
         },
       ],
     });
@@ -83,7 +83,7 @@ router.get('/post/:id', async (req, res) => {
       include: [
         {
           model: User,
-          // attributes: ['user_name'], DO I NEED THIS??????
+          // attributes: ['name'], DO I NEED THIS??????
           model: Comment, // do I need attributes????????????
         },
       ],
@@ -99,3 +99,5 @@ router.get('/post/:id', async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+module.exports = router;
