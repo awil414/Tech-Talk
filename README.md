@@ -2,7 +2,7 @@
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
 ## Description
-Tech Talk is CMS-style blog site similar to a Wordpress site, where developers can publish their blog posts and comment on other developers’ posts as well. This app follows the MVC paradigm in its architectural structure, using Handlebars.js as the templating language, Sequelize as the ORM, and the express-session npm package for authentication.
+Tech Talk is a CMS-style blog site similar to a Wordpress site, where developers can publish their blog posts and comment on other developers’ posts as well. This app follows the MVC paradigm in its architectural structure, using Handlebars.js as the templating language, Sequelize as the ORM, and the express-session npm package for authentication.
 
 ## Table of Contents
 * [Installation](#Installation)
@@ -35,6 +35,9 @@ npm run seed
 npm start 
 
 Live Deployed Application:
+https://project-tech-talk.herokuapp.com/
+
+<img width="1108" alt="Screen Shot 2022-11-08 at 1 31 23 PM" src="https://user-images.githubusercontent.com/109228469/200658830-0cc297ee-0626-4cc4-a93d-a8ddef91f863.png">
 
 
 ## License
