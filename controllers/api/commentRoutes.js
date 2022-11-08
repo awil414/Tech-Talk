@@ -3,13 +3,13 @@ const { Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // GET all comments
-router.get('/', async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
   try {
     const commentData = await Comment.findAll({
-      // where: {
-      //   // use session ID
-      //   user_id: req.session.user_id,
-      // },
+      where: {
+        // use session ID
+        user_id: req.session.user_id,
+      },
     });
     res.status(200).json(commentData);
   } catch (err) {
