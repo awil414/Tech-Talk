@@ -21,6 +21,7 @@
   "homepage": "https://github.com/awil414/Tech-Talk#readme",
   "dependencies": {
     "bcrypt": "^5.1.0",
+    "bootstrap-icons": "^1.9.1",
     "connect-session-sequelize": "^7.1.5",
     "dotenv": "^16.0.3",
     "eslint": "^8.26.0",
@@ -31,6 +32,5 @@
     "mysql2": "^2.3.3",
     "prettier": "^2.7.1",
     "sequelize": "^6.25.3"
-  },
-  "devDependencies": {}
+  }
 }
