@@ -16,7 +16,7 @@ User.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    user_name: {
+    name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -37,6 +37,7 @@ User.init(
     },
   },
   {
+    // Automatically hash user password before a Pass is created or updated
     hooks: {
       beforeCreate: async (newUserData) => {
         newUserData.password = await bcrypt.hash(newUserData.password, 10);
