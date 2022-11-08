@@ -10,7 +10,7 @@ router.get('/', withAuth, async (req, res) => {
         // use session ID
         user_id: req.session.user_id,
       },
-      attributes: ['id', 'title', 'post_body', 'created_at'],
+      attributes: ['id', 'title', 'post_body',],
       // order:[
       //   ['created_at', 'DESC']
       // ],
@@ -50,7 +50,7 @@ router.get('/:id', withAuth, async (req, res) => {
         // use session ID
         user_id: req.session.user_id,
       },
-      attributes: ['id', 'title', 'post_body', 'created_at'],
+      attributes: ['id', 'title', 'post_body'],  // created_at?
       // order:[
       //   ['created_at', 'DESC']
       // ],
@@ -124,7 +124,7 @@ router.delete('/:id', withAuth, async (req, res) => {
     });
 
     if (!postData) {
-      res.status(404).json({ message: 'No project found with this id!' });
+      res.status(404).json({ message: 'No post found with this id!' });
       return;
     }
 

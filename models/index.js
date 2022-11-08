@@ -27,7 +27,7 @@ User.hasMany(Comment, {
     onDelete: 'CASCADE', 
 });
 
-// Commnets belong to Post 
+// Comments belong to Post 
 Comment.belongsto(Post, {
   foreignKey: 'post_id'
 });

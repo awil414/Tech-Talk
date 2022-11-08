@@ -69,7 +69,6 @@ router.get('/login', (req, res) => {
 
 // GET signup form
 router.get('/signup', (req, res) => {
-  // If user already has an account ??????????????????????
   if (req.session.logged_in) {
     res.redirect('/');
     return;
