@@ -18,12 +18,12 @@ router.get('/', async (req, res) => {
           attributes: ['id', 'comment_text', 'post_id', 'user_id'],
           include: {
             model: User,
-            attributes: ['name'],
+            attributes: ['username'],
           },
         },
         {
           model: User,
-          attributes: ['name'],
+          attributes: ['username'],
         },
       ],
     });
@@ -48,7 +48,7 @@ router.get('/edit/:id', async (req, res) => {
       include: [
         {
           model: User,
-          // attributes: ['name'], DO I NEED THIS??????
+          // attributes: ['username'], DO I NEED THIS??????
           model: Comment, // do I need attributes????????????
         },
       ],

@@ -17,7 +17,7 @@ router.get('/', withAuth, async (req, res) => {
       include: [
         {
           model: User,
-          attributes: ['name'],
+          attributes: ['username'],
         },
         {
           model: Comment,
@@ -30,7 +30,7 @@ router.get('/', withAuth, async (req, res) => {
           ],
           include: {
             model: User,
-            attributes: ['name'],
+            attributes: ['username'],
           },
         },
       ],
@@ -57,7 +57,7 @@ router.get('/:id', withAuth, async (req, res) => {
       include: [
         {
           model: User,
-          attributes: ['name'],
+          attributes: ['username'],
         },
         {
           model: Comment,
@@ -70,7 +70,7 @@ router.get('/:id', withAuth, async (req, res) => {
           ],
           include: {
             model: User,
-            attributes: ['name'],
+            attributes: ['username'],
           },
         },
       ],
