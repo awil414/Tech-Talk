@@ -3,7 +3,7 @@ const router = require('express').Router();
 const { User, Post, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
-// GET all POSTS & their associated Comments
+// GET all POSTS & their associated Comments and render homepage
 router.get('/', async (req, res) => {
   try {
     const postData = await Post.findAll({
@@ -25,12 +25,12 @@ router.get('/', async (req, res) => {
     });
 
     // Serialize data for template to read
-    const posts = postData.map((post) => post.get({ plain: true })); //plural on post??
+    const posts = postData.map((post) => post.get({ plain: true })); 
 
     // Pass serialized data with sessions into template
     res.render('homepage', {
       posts,
-      // logged_in: req.session.logged_in,
+      logged_in: req.session.logged_in,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -79,15 +79,16 @@ router.get('/signup', (req, res) => {
 // GET one post
 router.get('/post/:id', async (req, res) => {
   try {
-    const postData = await Post.findOne(req.params.id, {
-      include: [
-        {
-          model: User,
-          // attributes: ['username'], DO I NEED THIS??????
-          model: Comment, // do I need attributes????????????
-        },
-      ],
-    });
+    const postData = await Post.findByPk(req.params.id);
+    //  {
+    //   include: [
+    //     {
+    //       model: User,
+    //       // attributes: ['username'], DO I NEED THIS??????
+    //       model: Comment, // do I need attributes????????????
+    //     },
+    //   ],
+    // });
     // Serialize the data
     const post = postData.get({ plain: true });
     // Pass data to template
