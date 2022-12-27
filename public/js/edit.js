@@ -8,9 +8,10 @@ const editFormHandler = async (event) => {
     .value.trim();
 
   // Selects ONE post
-  const id = window.location.toString().split('/')[
-    window.location.toString().split('/').length - 1
-  ];
+  // const id = window.location.toString().split('/')[
+  //   window.location.toString().split('/').length - 1
+  // ];
+  const id = window.location.pathname.split("/")[2];
 
   // Send a PUT request to the API endpoint
   const response = await fetch(`/api/posts/${id}`, {
@@ -28,5 +29,5 @@ const editFormHandler = async (event) => {
 };
 
 document
-  .querySelector('.edit-form')
-  .addEventListener('submit', editFormHandler);
+  .querySelector('#editPost-button')
+  .addEventListener('click', editFormHandler);

@@ -25,7 +25,7 @@ document.querySelector('#newPost-button').addEventListener('click', newFormHandl
 
 // Button clicked, take to profile
 const profile = async () => {
-  const response = await fetch("/api/post", {
+  const response = await fetch("/api/posts", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
   });
