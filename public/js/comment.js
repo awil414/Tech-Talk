@@ -5,9 +5,10 @@ const commentFormHandler = async (event) => {
     const comment_text = document.querySelector('input[name="comment-text"]').value.trim();
   
     // Selects ONE comment
-    const post_id = window.location.toString().split('/')[
-      window.location.toString().split('/').length - 1
-    ];
+    // const post_id = window.location.toString().split('/')[
+    //   window.location.toString().split('/').length - 1
+    // ];
+    const id = window.location.pathname.split("/")[2];
   
     // If there are comments, shows the text with the post
     if (comment_text) { 
