@@ -1,6 +1,12 @@
 <div class="post card">
   <div class="card-header">
     <h2>Create New Post</h2>
+    <button
+      href="/profile"
+      id="returnHome"
+      class="delete"
+      aria-label="delete"
+    ></button>
   </div>
   <form id="new-form" class="card-body">
     <label class="form-label" for="post-title">Title</label>
@@ -11,7 +17,7 @@
 
     <p>Created by {{user.username}} on {{format_date date_created}}</p>
     <p>
-      <button class="btn btn-primary">Submit</button>
+      <button class="btn btn-primary" id="newPost-button">Submit</button>
     </p>
   </form>
 </div>
