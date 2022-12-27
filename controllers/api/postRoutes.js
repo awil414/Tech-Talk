@@ -28,10 +28,10 @@ router.get('/', withAuth, async (req, res) => {
             'user_id',
             'created_at',
           ],
-          include: {
-            model: User,
-            attributes: ['username'],
-          },
+          // include: {
+          //   model: User,
+          //   attributes: ['username'],
+          // },
         },
       ],
     });
@@ -45,7 +45,10 @@ router.get('/', withAuth, async (req, res) => {
 // GET /post FIND ONE and its associated Comments
 router.get('/:id', withAuth, async (req, res) => {
   try {
-    const postData = await Post.findOne({
+    const postData = await Post.findByPk(req.params.id, {
+
+    // const post = postData.get({ plain:true });
+    // {
       where: {
         // use session ID
         user_id: req.session.user_id,
@@ -77,6 +80,10 @@ router.get('/:id', withAuth, async (req, res) => {
     });
 
     res.status(200).json(postData);
+    // res.render('post', {
+    //   ...post,
+    //   logged_in: req.session.logged_in,
+    // });
   } catch (err) {
     res.status(500).json(err);
   }
