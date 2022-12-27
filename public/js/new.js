@@ -1,3 +1,4 @@
+// CREATE new post
 const newFormHandler = async (event) => {
   event.preventDefault();
 
@@ -7,7 +8,7 @@ const newFormHandler = async (event) => {
     .value.trim();
 
   // Send a POST request to the API endpoint
-  const response = await fetch(`/api/posts`, {
+  const response = await fetch(`/api/create`, {
     method: 'POST',
     body: JSON.stringify({ title, post_body }),
     headers: { 'Content-Type': 'application/json' },
@@ -20,4 +21,4 @@ const newFormHandler = async (event) => {
   }
 };
 
-document.querySelector('.new-form').addEventListener('submit', newFormHandler);
+document.querySelector('#new-form').addEventListener('submit', newFormHandler);
